@@ -22,17 +22,22 @@ const SearchScreen = () => {
         ontermSubmit={() => searchApi(term)}
       />
       {error ? <Text>{error}</Text> : null}
-      <Text>We have found {results.length} results</Text>
-      <ResultsList results={filterResultsByPrice("$")} title="cost effective" />
-      <ResultsList results={filterResultsByPrice("$$")} title="bit pricier" />
+      <Text style={styles.results}>We have found {results.length} results</Text>
+      <ResultsList results={filterResultsByPrice("$")} title="Cost effective" />
+      <ResultsList results={filterResultsByPrice("$$")} title="Bit pricier" />
       <ResultsList
         results={filterResultsByPrice("$$$")}
-        title="quite expensive"
+        title="Quite expensive"
       />
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  results: {
+    marginLeft: 15
+
+  }
+});
 
 export default SearchScreen;
